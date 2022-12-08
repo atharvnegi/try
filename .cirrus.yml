@@ -8,7 +8,7 @@ env:
     TARGET: bootimage
 
 task:
-  name: "Building recovery "
+  name: "Building recovery"
   timeout_in: 240m  
   container:
       image: marvelmathesh/docker:rom
