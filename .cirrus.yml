@@ -1,0 +1,15 @@
+task:
+name: "Firmware Dump by fw-dumps"
+timeout_in: 120m
+container:
+      image: marvelmathesh/docker:rom
+      privileged: true
+      cpu: 8
+      memory: 32G
+
+  Clone_script:
+      - cd ~
+      - git clone https://github.com/fw-dumps/firmware_dumper dump      
+      - cd ~/dump
+      - bash setup.sh
+      - sudo bash dump.sh https://canary-mirror-index.sushrut1101.workers.dev/0:/Samfw.com_SM-E236B_INS_E236BXXU1AVJ1_fac.zip
