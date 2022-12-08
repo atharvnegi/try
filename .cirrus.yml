@@ -1,13 +1,22 @@
+env:
+    MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git
+    MANIFEST_BRANCH: twrp-12.1
+    DEVICE: selene
+    DT_LINK: https://github.com/Atharv-Supremacy/recovery_device_xiaomi_selene
+    DT_PATH: device/xiaomi/selene
+    LUNCH_TARGET: twrp
+    TARGET: bootimage
+
 task:
-name: "Firmware Dump by fw-dumps"
-timeout_in: 120m
-container:
+  name: "Building recovery "
+  timeout_in: 240m  
+  container:
       image: marvelmathesh/docker:rom
       privileged: true
       cpu: 8
       memory: 32G
-
-  Clone:
+  
+  Sync_script:
       - cd ~
       - git clone https://github.com/fw-dumps/firmware_dumper dump      
       - cd ~/dump
